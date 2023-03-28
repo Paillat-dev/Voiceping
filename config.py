@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 token = os.getenv('TOKEN')
-data_dir=os.getenv('DATA_DIR') or './data'  # use environment variable if set, otherwise use the data directory
+data_dir=os.getenv('DATA_DIR') or './datas'  # use environment variable if set, otherwise use the data directory
 
 with open('.gitignore', 'r') as f: gitignore = f.read()
 

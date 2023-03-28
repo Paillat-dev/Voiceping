@@ -1,6 +1,5 @@
 import json
 import os
-import discord
 from config import data_dir
 
 async def add_channel_roles(channel, member):
