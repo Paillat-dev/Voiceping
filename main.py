@@ -5,6 +5,8 @@ from utils import add_channel_roles, remove_channel_roles
 @bot.event
 async def on_ready():
     print("Bot is ready")
+    #set the bot status to "Ping @voice_vhannel_name"
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="@voice_channel_name"))
 
 @bot.event
 #when someone joins a voice channel
