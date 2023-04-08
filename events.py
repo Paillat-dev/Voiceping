@@ -1,5 +1,5 @@
 import discord
-from config import bot, token
+from config import bot
 from utils import add_channel_roles, remove_channel_roles
 
 
