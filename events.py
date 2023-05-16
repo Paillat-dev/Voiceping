@@ -41,3 +41,17 @@ async def on_voice_state_update(member, before, after):
     else:
         # Case 4
         pass
+
+@bot.command()
+async def shutdown(ctx):
+    if ctx.author.id != bot.owner_id:
+        return await ctx.send("You are not the owner of this bot.")
+    await ctx.send("Shutting down...")
+    await bot.change_presence(status=discord.Status.invisible)
+
+@bot.command()
+async def shutup(ctx):
+    if ctx.author.id != bot.owner_id:
+        return await ctx.send("You are not the owner of this bot.")
+    await ctx.send("Shutting up...")
+    await bot.change_presence(status=discord.Status.online)
