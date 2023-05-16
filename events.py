@@ -1,7 +1,7 @@
 import discord
 from config import bot
 from utils import add_channel_roles, remove_channel_roles
-
+from discord.ext.commands import is_owner
 
 @bot.event
 async def on_ready():
@@ -43,15 +43,13 @@ async def on_voice_state_update(member, before, after):
         pass
 
 @bot.command()
+@is_owner()
 async def shutdown(ctx):
-    if ctx.author.id != bot.owner_id:
-        return await ctx.send("You are not the owner of this bot.")
-    await ctx.send("Shutting down...")
+    await ctx.respond("Shutting down...", ephemeral=True)
     await bot.change_presence(status=discord.Status.invisible)
 
 @bot.command()
+@is_owner()
 async def shutup(ctx):
-    if ctx.author.id != bot.owner_id:
-        return await ctx.send("You are not the owner of this bot.")
-    await ctx.send("Shutting up...")
+    await ctx.respond("Shutting up...", ephemeral=True)
     await bot.change_presence(status=discord.Status.online)
