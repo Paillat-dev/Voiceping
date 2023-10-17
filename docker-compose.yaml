@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  voiceping:
+    container_name: Voiceping
+    build: .
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - ./data:/Voiceping/datas
